@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arma_nombre: MyString
+  arma_id: 1
+
+two:
+  arma_nombre: MyString
+  arma_id: 1

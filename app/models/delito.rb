@@ -1,0 +1,2 @@
+class Delito < ApplicationRecord
+end

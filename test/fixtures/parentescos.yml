@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parentesco_nombre: MyString
+
+two:
+  parentesco_nombre: MyString

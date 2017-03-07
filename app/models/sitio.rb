@@ -1,0 +1,2 @@
+class Sitio < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Etnia < ApplicationRecord
+end

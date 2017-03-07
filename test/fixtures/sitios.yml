@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sitio_nombre: MyString
+
+two:
+  sitio_nombre: MyString
