@@ -41,3 +41,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg'
 gem 'thin'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+group :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
+end

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hecho_fecha: 2017-03-07 15:40:37
+  hecho_denuncia: 2017-03-07 15:40:37
+  hecho_registro: 2017-03-07 15:40:37
+  hecho_reincidencia: false
+  persona: one
+  hecho_agresor: 1
+  condicion: one
+  parentesco: one
+  delito: one
+  sitio: one
+
+two:
+  hecho_fecha: 2017-03-07 15:40:37
+  hecho_denuncia: 2017-03-07 15:40:37
+  hecho_registro: 2017-03-07 15:40:37
+  hecho_reincidencia: false
+  persona: two
+  hecho_agresor: 1
+  condicion: two
+  parentesco: two
+  delito: two
+  sitio: two

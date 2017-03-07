@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307203022) do
+ActiveRecord::Schema.define(version: 20170307214037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,26 @@ ActiveRecord::Schema.define(version: 20170307203022) do
     t.index ["genero_nombre"], name: "index_generos_on_genero_nombre", unique: true, using: :btree
   end
 
+  create_table "hechos", force: :cascade do |t|
+    t.datetime "hecho_fecha"
+    t.datetime "hecho_denuncia"
+    t.datetime "hecho_registro"
+    t.boolean  "hecho_reincidencia"
+    t.integer  "persona_id"
+    t.integer  "hecho_agresor"
+    t.integer  "condicion_id"
+    t.integer  "parentesco_id"
+    t.integer  "delito_id"
+    t.integer  "sitio_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["condicion_id"], name: "index_hechos_on_condicion_id", using: :btree
+    t.index ["delito_id"], name: "index_hechos_on_delito_id", using: :btree
+    t.index ["parentesco_id"], name: "index_hechos_on_parentesco_id", using: :btree
+    t.index ["persona_id"], name: "index_hechos_on_persona_id", using: :btree
+    t.index ["sitio_id"], name: "index_hechos_on_sitio_id", using: :btree
+  end
+
   create_table "localidads", force: :cascade do |t|
     t.string   "localidad_nombre"
     t.integer  "localidad_id"
@@ -80,6 +100,27 @@ ActiveRecord::Schema.define(version: 20170307203022) do
     t.index ["parentesco_nombre"], name: "index_parentescos_on_parentesco_nombre", unique: true, using: :btree
   end
 
+  create_table "personas", force: :cascade do |t|
+    t.integer  "persona_edad"
+    t.text     "persona_direccion"
+    t.boolean  "persona_embarazo"
+    t.boolean  "persona_discapacidad"
+    t.integer  "genero_id"
+    t.integer  "etnia_id"
+    t.integer  "estadocivil_id"
+    t.integer  "escolaridad_id"
+    t.integer  "localidad_id"
+    t.integer  "arma_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["arma_id"], name: "index_personas_on_arma_id", using: :btree
+    t.index ["escolaridad_id"], name: "index_personas_on_escolaridad_id", using: :btree
+    t.index ["estadocivil_id"], name: "index_personas_on_estadocivil_id", using: :btree
+    t.index ["etnia_id"], name: "index_personas_on_etnia_id", using: :btree
+    t.index ["genero_id"], name: "index_personas_on_genero_id", using: :btree
+    t.index ["localidad_id"], name: "index_personas_on_localidad_id", using: :btree
+  end
+
   create_table "sitios", force: :cascade do |t|
     t.string   "sitio_nombre"
     t.datetime "created_at",   null: false
@@ -87,4 +128,15 @@ ActiveRecord::Schema.define(version: 20170307203022) do
     t.index ["sitio_nombre"], name: "index_sitios_on_sitio_nombre", unique: true, using: :btree
   end
 
+  add_foreign_key "hechos", "condicions"
+  add_foreign_key "hechos", "delitos"
+  add_foreign_key "hechos", "parentescos"
+  add_foreign_key "hechos", "personas"
+  add_foreign_key "hechos", "sitios"
+  add_foreign_key "personas", "armas"
+  add_foreign_key "personas", "escolaridads"
+  add_foreign_key "personas", "estadocivils"
+  add_foreign_key "personas", "etnia", column: "etnia_id"
+  add_foreign_key "personas", "generos"
+  add_foreign_key "personas", "localidads"
 end
