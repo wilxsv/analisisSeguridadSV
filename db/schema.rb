@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307214037) do
+ActiveRecord::Schema.define(version: 20170307230934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20170307214037) do
     t.integer  "sitio_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.float    "hecho_longitud"
+    t.float    "hecho_latitud"
     t.index ["condicion_id"], name: "index_hechos_on_condicion_id", using: :btree
     t.index ["delito_id"], name: "index_hechos_on_delito_id", using: :btree
     t.index ["parentesco_id"], name: "index_hechos_on_parentesco_id", using: :btree
@@ -89,8 +91,10 @@ ActiveRecord::Schema.define(version: 20170307214037) do
   create_table "localidads", force: :cascade do |t|
     t.string   "localidad_nombre"
     t.integer  "localidad_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.float    "localidad_longitud"
+    t.float    "localidad_latitud"
   end
 
   create_table "parentescos", force: :cascade do |t|
@@ -113,6 +117,8 @@ ActiveRecord::Schema.define(version: 20170307214037) do
     t.integer  "arma_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.float    "persona_longitud"
+    t.float    "persona_latitud"
     t.index ["arma_id"], name: "index_personas_on_arma_id", using: :btree
     t.index ["escolaridad_id"], name: "index_personas_on_escolaridad_id", using: :btree
     t.index ["estadocivil_id"], name: "index_personas_on_estadocivil_id", using: :btree
@@ -123,8 +129,8 @@ ActiveRecord::Schema.define(version: 20170307214037) do
 
   create_table "sitios", force: :cascade do |t|
     t.string   "sitio_nombre"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",   default: '2017-03-07 16:25:58', null: false
     t.index ["sitio_nombre"], name: "index_sitios_on_sitio_nombre", unique: true, using: :btree
   end
 
